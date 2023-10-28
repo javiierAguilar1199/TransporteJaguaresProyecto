@@ -1,0 +1,65 @@
+<div id="pdfcomponent" class="form-container">
+    <div style="text-align: center;">
+        <h1 style="font-size: 25px;">Reporte de Viajes por Piloto</h1>
+        <h1 style="font-size: 25px;">Transportes Jaguares</h1>
+        <div style="text-align: center; margin-top: 10px;">
+            <img src="./assets/images/logos/ImagenLogo.jpg" alt="Logo" width="150">
+        </div>
+    </div>
+
+    <div style="margin-top: 10px;">
+        <div><strong>Nombre del Piloto:</strong> {{pNOmbre}} {{pSNombre}} {{PApellido}} {{pSApellido}}</div>
+        <div><strong>Dirección:</strong> {{pDireccion}}</div>
+        <div><strong>Número de Identificación:</strong> {{pNoDPI}}</div>
+        <div><strong>Número Teléfono:</strong> {{pNoTelefono}}</div>
+    </div>
+
+    <style>
+        .logo-container {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .table-container {
+            margin-top: 20px;
+        }
+        
+        .table th {
+            font-weight: bold;
+            /* Aplica negrita a las etiquetas de encabezado */
+        }
+    </style>
+
+    <div class="hscroll table-container">
+        <table class="table w-full mt-24">
+            <thead>
+                <tr>
+                    <th class="py-6 border-b text-left">No.Entrega</th>
+                    <th class="py-6 border-b text-left">Unidad</th>
+                    <th class="py-6 border-b text-left">Departamento</th>
+                    <th class="py-6 border-b text-left">Municipio</th>
+                    <th class="py-6 border-b text-left">Día</th>
+                    <th class="py-6 border-b text-left">Lugar</th>
+                    <th class="py-6 border-b text-left">Socio</th>
+                    <th class="py-6 border-b text-left">Observaciones</th>
+                    <th class="py-6 border-b text-left">Fecha</th>
+                    <th class="py-6 border-b text-left">Usuario</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-body">
+                <!-- Tu contenido de tabla aquí -->
+            </tbody>
+
+        </table>
+    </div>
+</div>
+<button (click)="generatePDF()" style="background-color: #007BFF; color: #fff; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">
+  Generar PDF
+</button>
+<button (click)="generateExcel()" style="background-color: #a600ff; color: #fff; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">
+  Genera Excel
+  </button>
+
+<button (click)="regresar()" style="background-color: #6aff00; color: #fff; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">
+  Regresar
+  </button>

@@ -1,0 +1,105 @@
+<h1>Actualizar Horario</h1>
+<mat-card class="cardWithShadow theme-card">
+    <mat-card-content class="b-t-1">
+        <form [formGroup]="form" (submit)="onSubmit()">
+            <div class="row m-t-20">
+                <div class="col-lg-6">
+                    <mat-form-field appearance="outline" class="w-100" color="primary">
+                        <input matInput placeholder="Hora de Entrega*" formControlName="pHoraEntrega" type="time">
+                        <mat-hint *ngIf="f['pHoraEntrega'].touched && f['pHoraEntrega'].invalid" class="m-b-16 error-msg">
+                            <div class="text-error" *ngIf="f['pHoraEntrega'].errors">
+                                <div *ngIf="f['pHoraEntrega'].errors['required']">
+                                    Hora de Entrega es requerido
+                                </div>
+                            </div>
+                        </mat-hint>
+                    </mat-form-field>
+
+
+                    <mat-form-field appearance="outline" class="w-100" color="primary">
+                        <input matInput placeholder="Fecha de Carga*" formControlName="pFechaCarga" type="date">
+                        <mat-hint *ngIf="f['pFechaCarga'].touched && f['pFechaCarga'].invalid" class="m-b-16 error-msg">
+                            <div class="text-error" *ngIf="f['pFechaCarga'].errors">
+                                <div *ngIf="f['pFechaCarga'].errors['required']">
+                                    Fecha de Carga es requerida
+                                </div>
+                            </div>
+                        </mat-hint>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="w-100" color="primary">
+                        <input matInput placeholder="Planta de Carga*" formControlName="pPlanta" type="text">
+                        <mat-hint *ngIf="f['pPlanta'].touched && f['pPlanta'].invalid" class="m-b-16 error-msg">
+                            <div class="text-error" *ngIf="f['pPlanta'].errors">
+                                <div *ngIf="f['pPlanta'].errors['required']">
+                                    Planta de Carga es requirda
+                                </div>
+                            </div>
+                        </mat-hint>
+                    </mat-form-field>
+
+                </div>
+                <div class="col-lg-6">
+                    <mat-form-field appearance="outline" class="w-100" color="primary">
+                        <mat-select placeholder="Seleccione un Socio" formControlName="pIdSocio" (selectionChange)="onOptionSelected($event.value)">
+                            <mat-option *ngFor="let opest of Socios" [value]="opest.idSocio">
+                                {{ opest.pNombre }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-hint *ngIf="f['pIdSocio'].touched && f['pIdSocio'].invalid" class="m-b-16 error-msg">
+                            <div class="text-error" *ngIf="f['pIdSocio'].errors">
+                                <div *ngIf="f['pIdSocio'].errors['required']">
+                                    Selecione un Socio
+                                </div>
+                            </div>
+                        </mat-hint>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="w-100" color="primary">
+                        <mat-select placeholder="Seleccione una unidad" formControlName="pIdUnidad">
+                            <mat-option *ngFor="let opest of Unidades" [value]="opest.idUnidad">
+                                {{ opest.pCodigoUnidad }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-hint *ngIf="f['pIdUnidad'].touched && f['pIdUnidad'].invalid" class="m-b-16 error-msg">
+                            <div class="text-error" *ngIf="f['pIdUnidad'].errors">
+                                <div *ngIf="f['pIdUnidad'].errors['required']">
+                                    Selecione una unidad
+                                </div>
+                            </div>
+                        </mat-hint>
+                    </mat-form-field>
+
+
+                    <mat-form-field appearance="outline" class="w-100" color="primary">
+                        <mat-select placeholder="Seleccione un Piloto" formControlName="pIdPiloto">
+                            <mat-option *ngFor="let opest of Pilotos" [value]="opest.idPiloto">
+                                {{ opest.pNombre }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-hint *ngIf="f['pIdPiloto'].touched && f['pIdPiloto'].invalid" class="m-b-16 error-msg">
+                            <div class="text-error" *ngIf="f['pIdPiloto'].errors">
+                                <div *ngIf="f['pIdPiloto'].errors['required']">
+                                    Selecione un Piloto
+                                </div>
+                            </div>
+                        </mat-hint>
+                    </mat-form-field>
+
+
+                </div>
+            </div>
+            <!-- <pre>{{ form.value | json }}</pre> -->
+            <mat-card-actions appearance="outline" class="w-100" color="primary">
+                <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">
+            Actualizar
+           </button>
+                <button mat-raised-button style="background-color:rgb(0, 255, 140);" type="submit" class="mx-16" (click)="regresar()">
+            Regresar
+        </button>
+
+            </mat-card-actions>
+
+        </form>
+    </mat-card-content>
+</mat-card>

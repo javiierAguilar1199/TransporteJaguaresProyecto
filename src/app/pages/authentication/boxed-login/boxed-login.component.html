@@ -1,0 +1,66 @@
+<div class="blank-layout-container justify-content-center align-items-center">
+    <div class="position-relative row w-100 h-100 bg-gredient justify-content-center">
+        <div class="col-lg-4 d-flex align-items-center">
+            <mat-card class="cardWithShadow boxed-auth">
+                <mat-card-content class="p-32">
+                    <div class="text-center">
+
+                        <img src="./assets/images/logos/ImagenLogo.jpg" class="align-middle m-2" alt="logo" style="width: 350px; height: auto;" />
+                    </div>
+
+                    <form class="m-t-30" [formGroup]="form" (ngSubmit)="submit()">
+                        <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Usuario</mat-label>
+                        <mat-form-field appearance="outline" class="w-100" color="primary">
+                            <input matInput formControlName="uname" />
+                            <mat-hint *ngIf="f['uname'].touched && f['uname'].invalid" class="m-b-16 error-msg">
+                                <div class="text-error" *ngIf="f['uname'].errors && f['uname'].errors['required']">
+                                    Usuario es Requerido
+                                </div>
+                                <!-- <div class="text-error" *ngIf="f['uname'].errors && f['uname'].errors['minlength']">
+                                    Solo se permiten 6 Caracteres
+                                </div> -->
+                            </mat-hint>
+                        </mat-form-field>
+                        <!-- password -->
+                        <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Contraseña</mat-label>
+                        <mat-form-field appearance="outline" class="w-100" color="primary">
+                            <input matInput type="password" formControlName="password" />
+                            <mat-hint *ngIf="f['password'].touched && f['password'].invalid" class="m-b-16 error-msg">
+                                <div class="text-error" *ngIf="
+                                      f['password'].errors && f['password'].errors['required'] ">
+                                    Contraseña es Requerido
+                                </div>
+                                <!-- <div class="text-error" *ngIf="f['password'].errors && f['password'].errors['maxlength']">
+                                  La Logitud de la Contraseña no es Válida
+                              </div>
+                              <div class="text-error" *ngIf="f['password'].errors && f['password'].errors['minlength']">
+                                  La Logitud de la Contraseña no es Válida
+                              </div>
+                              <div class="text-error" *ngIf="f['password'].errors && f['password'].errors['pattern']">
+                                  La contraseña debe contener al menos una letra mayúscula, un carácter especial y un número.
+                              </div> -->
+
+                            </mat-hint>
+                        </mat-form-field>
+
+
+                        <p class="error-message" style="text-align: center;"><small style="color: rgb(72, 0, 255);">{{ error }}</small></p>
+                        <button mat-flat-button color="primary" class="w-100" [disabled]="!form.valid">
+              Iniciar Sesión
+            </button>
+                        <!-- input -->
+                    </form>
+                    <!-- <span class="d-block f-w-500 text-center m-t-24"
+            >New to Modernize?
+            <a
+              [routerLink]="['/authentication/boxed-register']"
+              class="text-decoration-none text-primary f-w-500 f-s-14"
+            >
+              Create an account</a
+            >
+          </span> -->
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

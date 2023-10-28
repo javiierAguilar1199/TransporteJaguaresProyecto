@@ -1,0 +1,45 @@
+<h1>Gráficas Mes Actual</h1>
+
+<mat-card class="cardWithShadow theme-card">
+    <mat-card-header>
+        <mat-card-title class="m-b-0">Top Pilotos</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="b-t-1">
+        <apx-chart #chart1 [series]="columnChartOptions1.series" [chart]="columnChartOptions1.chart" [xaxis]="columnChartOptions1.xaxis" [yaxis]="columnChartOptions1.yaxis" [grid]="columnChartOptions1.grid" [stroke]="columnChartOptions1.stroke" [tooltip]="columnChartOptions1.tooltip"
+            [plotOptions]="columnChartOptions1.plotOptions" [dataLabels]="columnChartOptions1.dataLabels" [legend]="columnChartOptions1.legend" [colors]="columnChartOptions1.colors" [markers]="columnChartOptions1.markers">
+        </apx-chart>
+    </mat-card-content>
+</mat-card>
+
+<mat-card class="cardWithShadow theme-card">
+    <mat-card-header>
+        <mat-card-title class="m-b-0">Top Departamentos</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="b-t-1">
+        <apx-chart #chart2 [series]="columnChartOptions2.series" [chart]="columnChartOptions2.chart" [xaxis]="columnChartOptions2.xaxis" [yaxis]="columnChartOptions2.yaxis" [grid]="columnChartOptions2.grid" [stroke]="columnChartOptions2.stroke" [tooltip]="columnChartOptions2.tooltip"
+            [plotOptions]="columnChartOptions2.plotOptions" [dataLabels]="columnChartOptions2.dataLabels" [legend]="columnChartOptions2.legend" [colors]="columnChartOptions2.colors" [markers]="columnChartOptions2.markers">
+        </apx-chart>
+    </mat-card-content>
+</mat-card>
+
+<mat-card class="cardWithShadow theme-card">
+    <mat-card-header>
+        <mat-card-title class="m-b-0">Top Socios</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="b-t-1">
+        <apx-chart #chart3 [series]="columnChartOptions3.series" [chart]="columnChartOptions3.chart" [xaxis]="columnChartOptions3.xaxis" [yaxis]="columnChartOptions3.yaxis" [grid]="columnChartOptions3.grid" [stroke]="columnChartOptions3.stroke" [tooltip]="columnChartOptions3.tooltip"
+            [plotOptions]="columnChartOptions3.plotOptions" [dataLabels]="columnChartOptions3.dataLabels" [legend]="columnChartOptions3.legend" [colors]="columnChartOptions3.colors" [markers]="columnChartOptions3.markers">
+        </apx-chart>
+    </mat-card-content>
+</mat-card>
+
+<mat-card class="cardWithShadow theme-card">
+    <mat-card-header>
+        <mat-card-title class="m-b-0">Top Unidades</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="b-t-1">
+        <apx-chart #chart4 [series]="columnChartOptions4.series" [chart]="columnChartOptions4.chart" [xaxis]="columnChartOptions4.xaxis" [yaxis]="columnChartOptions4.yaxis" [grid]="columnChartOptions4.grid" [stroke]="columnChartOptions4.stroke" [tooltip]="columnChartOptions4.tooltip"
+            [plotOptions]="columnChartOptions4.plotOptions" [dataLabels]="columnChartOptions4.dataLabels" [legend]="columnChartOptions4.legend" [colors]="columnChartOptions4.colors" [markers]="columnChartOptions4.markers">
+        </apx-chart>
+    </mat-card-content>
+</mat-card>

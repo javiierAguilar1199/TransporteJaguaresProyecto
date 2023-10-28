@@ -1,0 +1,125 @@
+<h1>Registro Pilotos</h1>
+<mat-card class="cardWithShadow theme-card">
+    <mat-card-content class="b-t-1">
+        <form [formGroup]="form" (submit)="onSubmit()">
+            <div class="row m-t-20">
+                <div class="col-lg-6">
+                    <mat-form-field appearance="outline" class="w-100" color="primary">
+                        <input matInput placeholder="Primer Nombre*" formControlName="pNombre" type="text">
+
+                        <mat-hint *ngIf="f['pNombre'].touched && f['pNombre'].invalid" class="m-b-16 error-msg">
+                            <div class="text-error" *ngIf="f['pNombre'].errors">
+                                <div *ngIf="f['pNombre'].errors['required']">
+                                    Primer Nombre es requerido
+                                </div>
+                            </div>
+                        </mat-hint>
+                    </mat-form-field>
+
+
+
+
+
+
+                    <mat-form-field appearance="outline" class="w-100" color="primary">
+                        <input matInput placeholder="Primer Apellido*" formControlName="pPApellido" type="text">
+                        <mat-hint *ngIf="f['pPApellido'].touched && f['pPApellido'].invalid" class="m-b-16 error-msg">
+                            <div class="text-error" *ngIf="f['pPApellido'].errors">
+                                <div *ngIf="f['pPApellido'].errors['required']">
+                                    Primer Apellido Es requerido
+                                </div>
+                            </div>
+                        </mat-hint>
+                    </mat-form-field>
+
+
+
+                    <mat-form-field appearance="outline" class="w-100" color="primary">
+                        <input matInput placeholder="Documento de Identificación Personal (DPI)*" formControlName="pNoDPI" type="text">
+                        <mat-hint *ngIf="f['pNoDPI'].touched && f['pNoDPI'].invalid" class="m-b-16 error-msg">
+                            <div class="text-error" *ngIf="f['pNoDPI'].errors">
+                                <div *ngIf="f['pNoDPI'].errors['required']">
+                                    Ingrese el DPI
+                                </div>
+                                <div *ngIf="f['pNoDPI'].errors['minlength'] || f['pNoDPI'].errors['maxlength']">
+                                    Ingrese un número de DPI válido
+                                </div>
+                            </div>
+                        </mat-hint>
+                    </mat-form-field>
+
+
+
+
+                </div>
+                <div class="col-lg-6">
+                    <mat-form-field appearance="outline" class="w-100" color="primary">
+                        <input matInput placeholder="Segundo Nombre*" formControlName="pSNombre" type="text">
+                        <mat-hint *ngIf="f['pSNombre'].touched && f['pSNombre'].invalid" class="m-b-16 error-msg">
+                            <div class="text-error" *ngIf="f['pSNombre'].errors">
+                                <div *ngIf="f['pSNombre'].errors['required']">
+                                    Segundo Nombre es Requerido
+                                </div>
+                            </div>
+                        </mat-hint>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="w-100" color="primary">
+                        <input matInput placeholder="Segundo Apellido*" formControlName="pSApellido" type="text">
+                        <mat-hint *ngIf="f['pSApellido'].touched && f['pSApellido'].invalid" class="m-b-16 error-msg">
+                            <div class="text-error" *ngIf="f['pSApellido'].errors">
+                                <div *ngIf="f['pSApellido'].errors['required']">
+                                    Segundo Apellido es requerido
+                                </div>
+                            </div>
+                        </mat-hint>
+                    </mat-form-field>
+
+
+
+
+                    <mat-form-field appearance="outline" class="w-100" color="primary">
+                        <input matInput placeholder="Número de Teléfono*" formControlName="pNoTelefono" type="text">
+                        <mat-hint *ngIf="f['pNoTelefono'].touched && f['pNoTelefono'].invalid" class="m-b-16 error-msg">
+                            <div class="text-error" *ngIf="f['pNoTelefono'].errors">
+                                <div *ngIf="f['pNoTelefono'].errors['required']">
+                                    Ingresa un número de teléfono
+                                </div>
+                                <div *ngIf="f['pNoTelefono'].errors['minlength'] || f['pNoTelefono'].errors['maxlength']">
+                                    Ingrese un número de teléfono válido
+                                </div>
+                                <div *ngIf="f['pNoTelefono'].errors['pattern']">
+                                    No puede Ingresar Letras
+                                </div>
+
+                            </div>
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-12">
+                    <mat-form-field appearance="outline" class="w-100" color="primary">
+                        <input matInput placeholder="Dirección*" formControlName="pDireccion" type="text">
+                        <mat-hint *ngIf="f['pDireccion'].touched && f['pDireccion'].invalid" class="m-b-16 error-msg">
+                            <div class="text-error" *ngIf="f['pDireccion'].errors">
+                                <div *ngIf="f['pDireccion'].errors['required']">
+                                    Dirección es Requerida
+                                </div>
+                            </div>
+                        </mat-hint>
+                    </mat-form-field>
+
+                </div>
+            </div>
+            <!-- <pre>{{ form.value | json }}</pre> -->
+            <mat-card-actions appearance="outline" class="w-100" color="primary">
+                <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">
+              Guardar
+             </button>
+                <button mat-raised-button style="background-color:rgb(0, 255, 140);" type="submit" class="mx-16" (click)="regresar()">
+              Regresar
+          </button>
+            </mat-card-actions>
+
+        </form>
+    </mat-card-content>
+</mat-card>

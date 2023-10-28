@@ -1,0 +1,100 @@
+<mat-toolbar class="topbar">
+    <!-- --------------------------------------------------------------- -->
+    <!-- Desktop Menu -->
+    <button mat-icon-button (click)="toggleCollapsed.emit()" *ngIf="showToggle" class="d-flex justify-content-center">
+    <i-tabler name="menu-2" class="icon-20 d-flex"></i-tabler>
+  </button>
+
+    <!-- Mobile Menu -->
+    <button mat-icon-button (click)="toggleMobileNav.emit()" *ngIf="!showToggle" class="d-flex justify-content-center">
+    <i-tabler name="menu-2" class="icon-20 d-flex"></i-tabler>
+  </button>
+
+    <span class="flex-1-auto"></span>
+
+    <!-- Mobile Menu -->
+    <button mat-icon-button (click)="toggleMobileFilterNav.emit()" class="d-flex d-lg-none justify-content-center">
+    <i-tabler name="grid-dots" class="icon-20 d-flex"></i-tabler>
+  </button>
+
+    <!-- --------------------------------------------------------------- -->
+    <!-- langugage Dropdown -->
+    <!-- --------------------------------------------------------------- -->
+    <!-- <button [matMenuTriggerFor]="flags" mat-icon-button class="m-r-5">
+    <img
+      [src]="selectedLanguage.icon"
+      class="rounded-circle object-cover icon-20"
+    />
+  </button>
+    <mat-menu #flags="matMenu" class="cardWithShadow">
+        <button mat-menu-item *ngFor="let lang of languages" (click)="changeLanguage(lang)">
+      <div class="d-flex align-items-center">
+        <img
+          [src]="lang.icon"
+          class="rounded-circle object-cover m-r-8 icon-20"
+        />
+        <span class="mat-subtitle-1 f-s-14">{{ lang.language }}</span>
+      </div>
+    </button>
+    </mat-menu> -->
+
+
+    <!-- --------------------------------------------------------------- -->
+    <!-- profile Dropdown -->
+    <!-- --------------------------------------------------------------- -->
+    <button mat-icon-button [matMenuTriggerFor]="profilemenu" aria-label="Notifications">
+    <img
+      src="./assets/images/logos/fondoPerfil.jpg"
+      class="rounded-circle object-cover"
+      width="100"
+      class="rounded-circle"
+    />
+    <h1>Bienvenido</h1>
+
+  </button>
+    <h1 clas="f-s-14 d-block m-b-4">Perfil</h1>
+    <mat-menu #profilemenu="matMenu" class="topbar-dd cardWithShadow">
+
+        <ng-scrollbar class="position-relative" style="height: 647px">
+            <div class="p-x-32 p-y-16">
+                <h5 class="f-s-14 f-w-600 m-0">Usuario: {{Usuario}}</h5>
+                <div clas="f-s-14 f-w-600 m-0">{{organizacion}}</div>
+
+                <div class="d-flex align-items-center p-b-24 b-b-1 m-t-16">
+                    <img src="./assets/images/logos/fondoPerfil.jpg" class="rounded-circle" width="95" />
+                    <div class="m-l-16">
+                        <h6 class="f-s-14 f-w-600 m-0"> {{nombre}} {{Apellido}}</h6>
+                        <span class="f-s-14 d-block m-b-4">{{DesROl}}</span>
+                        <span class="d-flex align-items-center">
+                        <i-tabler name="mail" class="icon-15 m-r-4"></i-tabler>
+                        {{Correo}}
+                       </span>
+
+                        <div>
+                            <!-- <button mat-flat-button (click)="CerrarSesion()" color="primary">
+                Cerrar Sesión
+               </button> -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <div>
+                <button mat-flat-button (click)="actualizar()" color="primary">
+                Actualizar perfil
+            </button>
+            </div>
+
+
+
+
+            <!-- <div class="p-y-12 p-x-32">
+                <a [routerLink]="['/authentication/side-login']" mat-stroked-button color="primary" class="w-100">Cerrar Sesión</a
+        >
+      </div> -->
+        </ng-scrollbar>
+    </mat-menu>
+</mat-toolbar>

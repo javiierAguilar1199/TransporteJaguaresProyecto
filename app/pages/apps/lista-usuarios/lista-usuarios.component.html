@@ -1,0 +1,105 @@
+<h1>Lista Usuarios</h1>
+<mat-card class="cardWithShadow">
+    <mat-card-content class="p-24">
+        <div class="row justify-content-between">
+            <div class="col-lg-4">
+                <mat-form-field appearance="outline" class="w-100 hide-hint">
+                    <input matInput placeholder="Buscar Socios" (keyup)="applyFilter($any($event.target).value)" />
+                    <mat-icon matSuffix>
+                        <i-tabler name="search" class="icon-20"></i-tabler>
+                    </mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="col-lg-4 d-flex align-items-center justify-content-end">
+                <button mat-flat-button (click)="openDialog()" color="primary">
+                  Agregar Usuarios
+              </button>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
+<mat-card class="cardWithShadow">
+    <mat-card-content class="p-24">
+        <div class="table-responsive">
+            <table mat-table [dataSource]="dataSource" class="w-100">
+                <ng-container matColumnDef="#">
+                    <th mat-header-cell *matHeaderCellDef class="f-s-16 f-w-600">#</th>
+                    <td mat-cell *matCellDef="let element">{{ element.pIdUsuario }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef class="f-s-16 f-w-600">Nombres</th>
+                    <td mat-cell *matCellDef="let element">
+                        <div class="d-flex align-items-center">
+                            <!-- <img class="rounded-circle" [src]="element.imagePath" width="40" /> -->
+                            <div class="m-l-16">
+                                <p class="f-w-600 mat-subtitle-1 f-s-16 m-t-0">
+                                    {{ element.pPNombre }} {{element.sNombre}}
+                                </p>
+                                <!-- <small class="mat-body-1 f-s-14">{{ element.Position }}</small> -->
+                            </div>
+                        </div>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="apellido">
+                    <th mat-header-cell *matHeaderCellDef class="f-s-16 f-w-600">
+                        Apellidos
+                    </th>
+                    <td mat-cell *matCellDef="let element" class="f-s-14">{{ element.pPApellido }} {{element.pSApellido}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="email">
+                    <th mat-header-cell *matHeaderCellDef class="f-s-16 f-w-600">
+                        Telefono
+                    </th>
+                    <td mat-cell *matCellDef="let element" class="f-s-14">{{ element.pNoTelefono }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="mobile">
+                    <th mat-header-cell *matHeaderCellDef class="f-s-16 f-w-600">
+                        No. DPI
+                    </th>
+                    <td mat-cell *matCellDef="let element" class="f-s-14">
+                        {{ element.pNoDPI }}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="correo">
+                    <th mat-header-cell *matHeaderCellDef class="f-s-16 f-w-600">
+                        Correo electronico
+                    </th>
+                    <td mat-cell *matCellDef="let element" class="f-s-14">
+                        {{ element.pCorreo }}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="direccion">
+                    <th mat-header-cell *matHeaderCellDef class="f-s-16 f-w-600">
+                        Direccion
+                    </th>
+                    <td mat-cell *matCellDef="let element" class="f-s-14">
+                        {{ element.pDireccion }}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef class="f-s-16 f-w-600">
+                        Acción
+                    </th>
+                    <td mat-cell *matCellDef="let element" class="action-link">
+                        <a (click)="actualizar( element.pIdUsuario)" class="m-r-10 cursor-pointer">
+                            <i-tabler name="edit" class="icon-18"></i-tabler>
+                        </a>
+                        <a (click)="borrar( element.pIdUsuario)" class="m-r-10 cursor-pointer">
+                            <i-tabler name="trash" class="icon-18"></i-tabler>
+                        </a>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>
+    </mat-card-content>
+</mat-card>

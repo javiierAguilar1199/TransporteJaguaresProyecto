@@ -1,0 +1,69 @@
+<h1>Reporte de Viajes por Unidad</h1>
+<mat-card class="cardWithShadow theme-card">
+    <mat-card-content class="b-t-1">
+        <form [formGroup]="form" (submit)="onSubmit()">
+            <div class="row m-t-20">
+
+                <div class="col-lg-6">
+                    <mat-form-field appearance="outline" class="w-100" color="primary">
+                        <mat-select placeholder="Seleccione un Socio" formControlName="pIdSocio" (selectionChange)="onOptionSelected($event.value)">
+                            <mat-option *ngFor="let opest of socios" [value]="opest.idSocio">
+                                {{ opest.pNombre }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-hint *ngIf="f['pIdSocio'].touched && f['pIdSocio'].invalid" class="m-b-16 error-msg">
+                            <div class="text-error" *ngIf="f['pIdSocio'].errors">
+                                <div *ngIf="f['pIdSocio'].errors['required']">
+                                    Selecione un Socio
+                                </div>
+                            </div>
+
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-6">
+                    <mat-form-field appearance="outline" class="w-100" color="primary">
+                        <mat-select placeholder="Seleccione una unidad" formControlName="pIdUnidad">
+                            <mat-option *ngFor="let opest of Unidades" [value]="opest.idUnidad">
+                                {{ opest.pCodigoUnidad }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-hint *ngIf="f['pIdUnidad'].touched && f['pIdUnidad'].invalid" class="m-b-16 error-msg">
+                            <div class="text-error" *ngIf="f['pIdUnidad'].errors">
+                                <div *ngIf="f['pIdUnidad'].errors['required']">
+                                    Selecione una unidad
+                                </div>
+                            </div>
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-6">
+                    <h2> Seleccione Forma de Generación</h2>
+                    <!-- <mat-label for="tipoMes">Seleccione Forma:</mat-label> -->
+                    <mat-radio-group formControlName="tipoMes" id="tipoMes">
+                        <mat-radio-button value="1">Último mes</mat-radio-button>
+                        <mat-radio-button value="3">Últimos 3 meses</mat-radio-button>
+                        <mat-radio-button value="0">Inicio de Labores</mat-radio-button>
+                    </mat-radio-group>
+                    <mat-hint *ngIf="f['tipoMes'].touched && f['tipoMes'].invalid" class="m-b-16 error-msg">
+                        <div class="text-error" *ngIf="f['tipoMes'].errors">
+                            <div *ngIf="f['tipoMes'].errors['required']">
+                                Seleccione un tipo de mes
+                            </div>
+                        </div>
+                    </mat-hint>
+                </div>
+            </div>
+
+            <mat-card-actions appearance="outline" class="w-100" color="primary">
+                <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">
+             Generar Reporte
+             </button>
+                <button mat-raised-button style="background-color:rgb(0, 255, 140);" type="submit" class="mx-16" (click)="regresar()">
+              Regresar
+          </button>
+            </mat-card-actions>
+
+        </form>
+    </mat-card-content>
+</mat-card>

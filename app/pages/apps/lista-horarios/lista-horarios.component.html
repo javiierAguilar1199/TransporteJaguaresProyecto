@@ -1,0 +1,97 @@
+<h1>Lista Horarios </h1>
+<mat-card class="cardWithShadow">
+    <mat-card-content class="p-24">
+        <div class="row justify-content-between">
+            <div class="col-lg-4">
+                <mat-form-field appearance="outline" class="w-100 hide-hint">
+                    <input matInput placeholder="Buscar Socios" (keyup)="applyFilter($any($event.target).value)" />
+                    <mat-icon matSuffix>
+                        <i-tabler name="search" class="icon-20"></i-tabler>
+                    </mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="col-lg-4 d-flex align-items-center justify-content-end">
+                <button mat-flat-button (click)="openDialog()" color="primary">
+              Agregar Horarios
+          </button>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
+<mat-card class="cardWithShadow">
+    <mat-card-content class="p-24">
+        <div class="table-responsive">
+            <table mat-table [dataSource]="dataSource" class="w-100">
+                <ng-container matColumnDef="#">
+                    <th mat-header-cell *matHeaderCellDef class="f-s-16 f-w-600">#</th>
+                    <td mat-cell *matCellDef="let element">{{ element.idHorario }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="codigoUnidad">
+                    <th mat-header-cell *matHeaderCellDef class="f-s-16 f-w-600">Código Unidad</th>
+                    <td mat-cell *matCellDef="let element">
+                        <div class="d-flex align-items-center">
+                            <!-- <img class="rounded-circle" [src]="element.imagePath" width="40" /> -->
+                            <div class="m-l-16">
+                                <p class="f-w-600 mat-subtitle-1 f-s-16 m-t-0">
+                                    {{ element.pCodigoUnidad }}
+                                </p>
+                                <!-- <small class="mat-body-1 f-s-14">{{ element.Position }}</small> -->
+                            </div>
+                        </div>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="fecha">
+                    <th mat-header-cell *matHeaderCellDef class="f-s-16 f-w-600">
+                        Fecha Carga
+                    </th>
+                    <td mat-cell *matCellDef="let element" class="f-s-14">{{ element.pFechaCarga }}</td>
+                </ng-container>
+
+
+                <ng-container matColumnDef="hora">
+                    <th mat-header-cell *matHeaderCellDef class="f-s-16 f-w-600">
+                        Hora Carga
+                    </th>
+                    <td mat-cell *matCellDef="let element" class="f-s-14">{{ element.pHoraCarga }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="nombresocio">
+                    <th mat-header-cell *matHeaderCellDef class="f-s-16 f-w-600">
+                        Socio
+                    </th>
+                    <td mat-cell *matCellDef="let element" class="f-s-14">{{ element.pNOmbreSocio }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="planta">
+                    <th mat-header-cell *matHeaderCellDef class="f-s-16 f-w-600">
+                        Planta
+                    </th>
+                    <td mat-cell *matCellDef="let element" class="f-s-14">
+                        {{ element.pPlantaCarga }}
+                    </td>
+
+
+                </ng-container>
+
+                <ng-container matColumnDef="Accion">
+                    <th mat-header-cell *matHeaderCellDef class="f-s-16 f-w-600">
+                        Accion
+                    </th>
+                    <td mat-cell *matCellDef="let element" class="action-link">
+                        <a (click)="actualizar( element.idHorario)" class="m-r-10 cursor-pointer">
+                            <i-tabler name="edit" class="icon-18"></i-tabler>
+                        </a>
+                        <a (click)="borrar( element.idHorario)" class="m-r-10 cursor-pointer">
+                            <i-tabler name="trash" class="icon-18"></i-tabler>
+                        </a>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>
+    </mat-card-content>
+</mat-card>

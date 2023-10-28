@@ -1,0 +1,17 @@
+<div class="row">
+    <ng-container *ngFor="let topcard of topcards; let i = index">
+        <div class="col-lg-2 col-sm-4 col-6" *ngFor="let top of top.slice(i * (top.length / topcards.length), (i + 1) * (top.length / topcards.length))">
+            <mat-card class="shadow-none text-center bg-light-{{ top.color }}  shadow-none">
+                <mat-card-content class="p-32">
+                    <img [src]="top.img" alt="users" width="70" class="rounded-circle" />
+                    <h4 class="mat-subtitle-2 f-w-600 text-{{ topcard.color }} m-t-8">
+                        {{ topcard.pDescripcion }}
+                    </h4>
+                    <h6 class="m-t-4 mat-subtitle-1 f-w-600 text-{{ topcard.color }} m-t-8">
+                        {{ topcard.pCantidad }}
+                    </h6>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </ng-container>
+</div>

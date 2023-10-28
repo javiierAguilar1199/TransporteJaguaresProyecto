@@ -1,0 +1,122 @@
+<h1>Listado de Viajes</h1>
+<mat-card class="cardWithShadow">
+    <mat-card-content class="p-24">
+        <div class="row justify-content-between">
+            <div class="col-lg-4">
+                <mat-form-field appearance="outline" class="w-100 hide-hint">
+                    <input matInput placeholder="Buscar Viajes" (keyup)="applyFilter($any($event.target).value)" />
+                    <mat-icon matSuffix>
+                        <i-tabler name="search" class="icon-20"></i-tabler>
+                    </mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="col-lg-4 d-flex align-items-center justify-content-end">
+                <button mat-flat-button (click)="openDialog()" color="primary">
+            Agregar Viaje
+        </button>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
+<mat-card class="cardWithShadow">
+    <mat-card-content class="p-24">
+        <div class="table-responsive">
+            <table mat-table [dataSource]="dataSource" class="w-100">
+                <!-- <ng-container matColumnDef="#">
+                    <th mat-header-cell *matHeaderCellDef class="f-s-16 f-w-600">#</th>
+                    <td mat-cell *matCellDef="let element">{{ element.idBitacora }}</td>
+                </ng-container>  -->
+
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef class="f-s-16 f-w-600">Nombre Socio</th>
+                    <td mat-cell *matCellDef="let element">
+                        <div class="d-flex align-items-center">
+                            <!-- <img class="rounded-circle" [src]="element.imagePath" width="40" /> -->
+                            <div class="m-l-16">
+                                <p class="f-w-600 mat-subtitle-1 f-s-16 m-t-0">
+                                    {{ element.pNOmbreSocio }}
+                                </p>
+                                <!-- <small class="mat-body-1 f-s-14">{{ element.Position }}</small> -->
+                            </div>
+                        </div>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="fecha">
+                    <th mat-header-cell *matHeaderCellDef class="f-s-16 f-w-600">
+                        Fecha Entrega
+                    </th>
+                    <td mat-cell *matCellDef="let element" class="f-s-14">{{ element.pFechaEntrega }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="hora">
+                    <th mat-header-cell *matHeaderCellDef class="f-s-16 f-w-600">
+                        Hora Entrega
+                    </th>
+                    <td mat-cell *matCellDef="let element" class="f-s-14">{{ element.pHOraEntrega }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="Entrega">
+                    <th mat-header-cell *matHeaderCellDef class="f-s-16 f-w-600">
+                        Lugar Entrega
+                    </th>
+                    <td mat-cell *matCellDef="let element" class="f-s-14">
+                        {{ element.pLugarEntrega }}
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="municipio">
+                    <th mat-header-cell *matHeaderCellDef class="f-s-16 f-w-600">
+                        Municipio Entrega
+                    </th>
+                    <td mat-cell *matCellDef="let element" class="f-s-14">
+                        {{ element.pMunicipio }}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Departamento">
+                    <th mat-header-cell *matHeaderCellDef class="f-s-16 f-w-600">
+                        Departamento Entrega
+                    </th>
+                    <td mat-cell *matCellDef="let element" class="f-s-14">
+                        {{ element.pDepartamento }}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Piloto">
+                    <th mat-header-cell *matHeaderCellDef class="f-s-16 f-w-600">
+                        Piloto
+                    </th>
+                    <td mat-cell *matCellDef="let element" class="f-s-14">
+                        {{ element.pnOmbrePiloto }}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="codigouni">
+                    <th mat-header-cell *matHeaderCellDef class="f-s-16 f-w-600">
+                        Código de Unidad
+                    </th>
+                    <td mat-cell *matCellDef="let element" class="f-s-14">
+                        {{ element.pCodigoUnidad }}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef class="f-s-16 f-w-600">
+                        Acción
+                    </th>
+                    <td mat-cell *matCellDef="let element" class="action-link">
+                        <a (click)="actualizar( element.idBitacora)" class="m-r-10 cursor-pointer">
+                            <i-tabler name="edit" class="icon-18"></i-tabler>
+                        </a>
+                        <a (click)="borrar( element.idBitacora)" class="m-r-10 cursor-pointer">
+                            <i-tabler name="trash" class="icon-18"></i-tabler>
+                        </a>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>
+    </mat-card-content>
+</mat-card>
